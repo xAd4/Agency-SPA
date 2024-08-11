@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+   <!-- Basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <!-- Site Metas -->
+   <title>Aven - Real Estate Responsive HTML5 Landing Page Template</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   {% load static %}
+   <link rel="shortcut icon" href="{% static 'app/images/favicon.ico' %}" type="image/x-icon" /> 
+   <link rel="apple-touch-icon" href="{% static 'app/images/apple-touch-icon.png' %}"> 
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}"> 
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="{% static 'app/style.css' %}"> 
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="{% static 'app/css/colors.css' %}"> 
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="{% static 'app/css/versions.css' %}"> 
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="{% static 'app/css/responsive.css' %}"> 
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="{% static 'app/css/custom.css' %}"> 
+   <!-- Modernizer for Portfolio -->
+   <script src="{% static 'app/js/modernizer.js' %}"></script> 
+   <!--[if lt IE 9]>
+   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+   <![endif]-->
+   </head>
+   <body class="realestate_version">
+      <!-- LOADER -->
+      <div id="preloader">
+         <img class="preloader" src="{% static 'app/images/loaders/loader-realestate.gif' %}" alt=""> 
+      </div>
+      <!-- end loader -->
+      <!-- END LOADER -->
+      <header class="header header_style_01">
+         <nav class="megamenu navbar navbar-default" data-spy="affix">
+            <div class="container-fluid">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'app/images/logos/logo.png' %}" width="220" alt="image" /></a> 
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li><a data-scroll href="{% url 'home' %}">Home</a></li>
+                     <li><a data-scroll href="{% url 'home' %}#agent">The Agent</a></li>
+                     <li><a data-scroll href="{% url 'home' %}#gallery">Gallery</a></li>
+                     <li><a data-scroll href="{% url 'home' %}#testimonials">Testimonials</a></li>
+                     <li><a data-scroll href="{% url 'home' %}#support">Contact</a></li>
+                  {% comment "ADMIN OPTION" %} THIS NAVS SEE ONLY ADMINS {% endcomment %}
+                  {% if request.user.is_staff %}
+                  <li><a data-scroll href="#">Appointment</a></li>
+                  {% endif %}
+                     {% if request.user.is_authenticated %}
+                     <li>
+                        <a href="#" onclick="document.getElementById('logout-form').submit();">Log Out <i></i></a>
+                        <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
+                            {% csrf_token %}
+                        </form>
+                    </li>
+                 {% else %}
+                     <li><a data-scroll href="{% url 'signup' %}#register">Sign Up</a></li>
+                     <li><a data-scroll href="{% url 'login' %}">Log In</a></li>
+                 {% endif %}
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </header>
+      <div id="home" class="parallax first-section" data-stellar-background-ratio="0.4" style="background-image:url('{% static 'app/uploads/parallax.jpg' %}');"> 
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6 col-sm-12">
+                  <div class="big-tagline clearfix">
+                     <h2>Sell Your Property with Aven</h2>
+                     <p class="lead">With Aven responsive landing page template, you can promote your all property & real estate projects. </p>
+                     <a data-scroll href="{% url 'home' %}#gallery" class="btn btn-light btn-radius grd1 btn-brd">View Gallery</a>
+                  </div>
+               </div>
+               {% if request.user.is_authenticated %}
+               {% load form_appointment %} {% form_appointment %}
+               {% endif %}
+            </div>
+            <!-- end row -->
+         </div>
+         <!-- end container -->
+      </div>
+
+
+
+      <!-- CONTENT -->
+      {% block content %}{% endblock content %}
+
+
+
+      <footer class="footer">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                 <div class="widget clearfix">
+                    <div class="widget-title">
+                       <img src="{% static 'app/images/logos/logo.png' %}" width="210" alt=""> 
+                    </div>
+                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
+                    <p>Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
+                 </div>
+                 <!-- end clearfix -->
+              </div>
+              <!-- end col -->
+              <div class="col-md-3 col-sm-3 col-xs-12">
+                 <div class="widget clearfix">
+                    <div class="widget-title">
+                       <h3>Contact Details</h3>
+                    </div>
+                    <ul class="footer-links">
+                       <li><a href="mailto:#">info@yoursite.com</a></li>
+                       <li><a href="#">www.yoursite.com</a></li>
+                       <li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
+                       <li>+61 3 8376 6284</li>
+                    </ul>
+                    <!-- end links -->
+                 </div>
+                 <!-- end clearfix -->
+              </div>
+              <!-- end col -->
+              <!-- end col -->
+              <!-- end col -->
+           </div>
+           <!-- end row -->
+        </div>
+        <!-- end container -->
+     </footer>
+     <!-- end footer -->
+     <div class="copyrights">
+        <div class="container">
+           <div class="footer-distributed">
+              <div class="footer-left">
+                 <p class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookies</a>
+                 </p>
+                 <p class="footer-company-name">All Rights Reserved. <a href="#">Aven, C.A</a> &copy; 2024</p>
+              </div>
+              <div class="footer-right">
+              </div>
+           </div>
+        </div>
+        <!-- end container -->
+     </div>
+     <!-- end copyrights -->
+     <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+     <!-- ALL JS FILES -->
+     <script src="{% static 'app/js/all.js' %}"></script> 
+     <!-- ALL PLUGINS -->
+     <script src="{% static 'app/js/custom.js' %}"></script> 
+     <script src="{% static 'app/js/portfolio.js' %}"></script> 
+     <script src="{% static 'app/js/hoverdir.js' %}"></script>     
+     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+     <!-- MAP & CONTACT -->
+     <script src="{% static 'app/js/map.js' %}"></script> 
+  </body>
+</html>
