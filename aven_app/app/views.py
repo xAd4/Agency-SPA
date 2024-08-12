@@ -8,7 +8,7 @@ from .forms import AppointmentForm, ContactForm
 class HomeView(FormView):
     template_name = "app/index.html"
     form_class = AppointmentForm  # Usamos AppointmentForm como el formulario principal
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('status-200')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

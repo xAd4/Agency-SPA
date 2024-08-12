@@ -19,6 +19,7 @@ from django.urls import path, include
 from registration import urls
 from app import urls
 from api import urls
+from helpers import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +30,6 @@ urlpatterns = [
     path("api/", include("api.urls")),
     # Home Page
     path("", include("app.urls")),
+    # Helpers Page
+    path("status/", include("helpers.urls")),
 ]
