@@ -4,7 +4,6 @@ from django.views.generic import TemplateView, FormView
 from .forms import AppointmentForm, ContactForm
 
 # Create your views here.
-
 class HomeView(FormView):
     template_name = "app/index.html"
     form_class = AppointmentForm  # Usamos AppointmentForm como el formulario principal

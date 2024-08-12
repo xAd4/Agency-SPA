@@ -58,7 +58,9 @@
                      <li><a data-scroll href="{% url 'home' %}#agent">The Agent</a></li>
                      <li><a data-scroll href="{% url 'home' %}#gallery">Gallery</a></li>
                      <li><a data-scroll href="{% url 'home' %}#testimonials">Testimonials</a></li>
-                     <li><a data-scroll href="{% url 'home' %}#support">Contact</a></li>
+                     {% if request.user.is_authenticated %}
+                     <li><a data-scroll href="{% url 'home' %}#support">Review</a></li>                    
+                     {% endif %}
                   {% comment "ADMIN OPTION" %} THIS NAVS SEE ONLY ADMINS {% endcomment %}
                   {% if request.user.is_staff %}
                   <li><a data-scroll href="#">Appointment</a></li>

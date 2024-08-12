@@ -1,57 +1,95 @@
-{% extends 'app/base.html' %} 
-{% load static %} 
+{% extends 'app/base.html' %}
+{% load static %}
 {% block content %}
 <style>
   .errorlist {
     color: red;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+
+  .login-box {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .login-box h3 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+  }
+
+  .login-box .form-control {
+    border-radius: 5px;
+  }
+
+  .login-box .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 5px;
+  }
+
+  .login-box .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+
+  .login-box .form-group {
+    margin-bottom: 15px;
   }
 </style>
-<div id="features" class="section wb container">
-  <main role="main">
-    <div class="container">
-      <div class="row mt-3">
-        <div class="col-md-9 mx-auto mb-5">
-          <form action="" method="post">
-            {% csrf_token %}
-            <h3 class="mb-4">Iniciar sesión</h3>
-            {% if form.non_field_errors %}
-            <p style="color: red">
-              Usuario o contraseña incorrectos, prueba de nuevo.
-            </p>
-            {% endif %}
-            <p>
-              <input
-                type="text"
-                name="username"
-                autofocus
-                maxlength="254"
-                required
-                id="id_username"
-                class="form-control"
-                placeholder="Nombre de usuario"
-              />
-            </p>
-            <p>
-              <input
-                type="password"
-                name="password"
-                required
-                id="id_password"
-                class="form-control"
-                placeholder="Contraseña"
-              />
-            </p>
-            <p>
-              <input
-                type="submit"
-                class="btn btn-primary btn-block"
-                value="Acceder"
-              />
-            </p>
-          </form>
-        </div>
+
+<div class="container login-container">
+  <div class="login-box">
+    <form action="" method="post">
+      {% csrf_token %}
+      <h3>Iniciar sesión</h3>
+
+      {% if form.non_field_errors %}
+      <ul class="errorlist">
+        <li>Usuario o contraseña incorrectos, prueba de nuevo.</li>
+      </ul>
+      {% endif %}
+
+      <div class="form-group">
+        <input
+          type="text"
+          name="username"
+          autofocus
+          maxlength="254"
+          required
+          id="id_username"
+          class="form-control"
+          placeholder="Nombre de usuario"
+        />
       </div>
-    </div>
-  </main>
+
+      <div class="form-group">
+        <input
+          type="password"
+          name="password"
+          required
+          id="id_password"
+          class="form-control"
+          placeholder="Contraseña"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Acceder</button>
+    </form>
+  </div>
 </div>
 {% endblock %}
