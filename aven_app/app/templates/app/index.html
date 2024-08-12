@@ -87,6 +87,7 @@
     <!-- end row -->
   </div>
 </div>
+{% include "helpers/includes/admin_menu.html" %}
 <div id="gallery" class="section wb">
   <div class="sep2"></div>
   <div class="container">
@@ -103,55 +104,17 @@
     </div>
     <!-- end title -->
     <div id="da-thumbs" class="da-thumbs portfolio">
+      {% load gallery %} {% galleries as gallery %}
+      {% for house in gallery %}
       <div class="post-media pitem item-w1 item-h1 cat1">
-        <a href="idea-details.html">
-          <img src="{% static 'app/uploads/home_01.jpg' %}" alt="" class="img-responsive" /> 
+        <a href="#">
+          <img src="{{house.image.url}}" alt="{{house.title}}" class="img-responsive" /> 
           <div>
             <i class="flaticon-unlink"></i>
           </div>
         </a>
       </div>
-      <div class="post-media pitem item-w1 item-h1 cat2">
-        <a href="idea-details.html">
-          <img src="{% static 'app/uploads/home_02.jpg' %}" alt="" class="img-responsive" /> 
-          <div>
-            <i class="flaticon-unlink"></i>
-          </div>
-        </a>
-      </div>
-      <div class="post-media pitem item-w1 item-h1 cat1">
-        <a href="idea-details.html">
-          <img src="{% static 'app/uploads/home_03.jpg' %}" alt="" class="img-responsive" /> 
-          <div>
-            <i class="flaticon-unlink"></i>
-          </div>
-        </a>
-      </div>
-      <div class="post-media pitem item-w1 item-h1 cat3">
-        <a href="idea-details.html">
-          <img src="{% static 'app/uploads/home_04.jpg' %}" alt="" class="img-responsive" /> 
-          <div>
-            <i class="flaticon-unlink"></i>
-          </div>
-        </a>
-      </div>
-      <div class="post-media pitem item-w1 item-h1 cat2">
-        <a href="idea-details.html">
-          <img src="{% static 'app/uploads/home_05.jpg' %}" alt="" class="img-responsive" /> 
-          <div>
-            <i class="flaticon-unlink"></i>
-          </div>
-        </a>
-      </div>
-      <div class="post-media pitem item-w1 item-h1 cat1">
-        <a href="idea-details.html">
-          <img src="{% static 'app/uploads/home_06.jpg' %}" alt="" class="img-responsive" /> 
-          <div>
-            <i class="flaticon-unlink"></i>
-          </div>
-        </a>
-      </div>
-    </div>
+      {% endfor %}
     <!-- end portfolio -->
   </div>
   <!-- end container -->

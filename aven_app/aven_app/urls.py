@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from . import settings
 from registration import urls
 from app import urls
 from api import urls
@@ -33,3 +35,8 @@ urlpatterns = [
     # Helpers Page
     path("status/", include("helpers.urls")),
 ]
+
+# MEDIA CONFIG
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

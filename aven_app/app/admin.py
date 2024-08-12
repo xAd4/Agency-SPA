@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SelectTimeList, BudgetList, Appointment, Contact
+from .models import SelectTimeList, BudgetList, Appointment, Contact, Gallery
 
 # Register your models here.
 # TODO: ReadOnlyFields Option
@@ -13,3 +13,6 @@ admin.site.register(Appointment, ReadOnlyFieldsAdmin)
 
 #* IMPORTANT: REGISTER MODELS - CONTACT
 admin.site.register(Contact, ReadOnlyFieldsAdmin)
+
+#* IMPORTANT: REGISTER MODELS - GALLERY
+admin.site.register(Gallery, ReadOnlyFieldsAdmin)
