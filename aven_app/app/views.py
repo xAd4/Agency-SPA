@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, FormView
 from .forms import AppointmentForm, ContactForm
@@ -23,8 +23,10 @@ class HomeView(FormView):
             appointment_form.save()
             return self.form_valid(appointment_form)
         elif contact_form.is_valid():
-            contact_form.save()
-            return self.form_valid(contact_form)
+            contact = contact_form.save(commit=False)  # No guardar aún en la base de datos
+            contact.user_published = self.request.user  # Asignar el usuario logueado
+            contact.save()  # Ahora guardar en la base de datos
+            return redirect(self.success_url)
         else:
             return self.form_invalid(appointment_form)
     

@@ -41,8 +41,18 @@ class AppointmentForm(forms.ModelForm):
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = ["firstName","lastName","email","phoneNumber","content"]
+        fields = ["titleReview","address","firstName","lastName","email","phoneNumber","content"]
         widgets = {
+            "titleReview": forms.TextInput(attrs={
+                "class": "form-control", 
+                "placeholder": "Title Review",
+                "style": "text-transform:none;",
+            }),
+                "address": forms.TextInput(attrs={
+                "class": "form-control", 
+                "placeholder": "address",
+                "style": "text-transform:none;",
+            }),
             "firstName": forms.TextInput(attrs={
                 "class": "form-control", 
                 "placeholder": "First Name",

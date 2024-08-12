@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
  #* IMPORTANT: MODELS - APPOINTMENTS
@@ -46,11 +47,14 @@ class Appointment(models.Model): # Client Info
     
 #* IMPORTANT: MODELS - CONTACT
 class Contact(models.Model): # Client Info
+    titleReview = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
     firstName = models.CharField(max_length=50)
     lastName = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
     phoneNumber = models.CharField(max_length=50)
     content = models.CharField(max_length=600)
+    user_published = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date created")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Date updated")
     
