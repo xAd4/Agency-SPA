@@ -1,10 +1,10 @@
-{% extends "app/base.html" %}
-{% block content %}
+{% extends "app/base.html" %} 
+{% block content %} 
 {% load static %}
 <div
   id="agent"
   class="parallax section db parallax-off"
-  style="background-image: url('{% static 'app/uploads/parallax_02.png' %}')" 
+  style="background-image: url('{% static 'app/uploads/parallax_02.png' %}')"
 >
   <div class="container" id="agent">
     <div class="section-title row text-center">
@@ -23,7 +23,7 @@
       <div class="col-md-3">
         <div class="post-media wow fadeIn">
           <img
-            src="{% static 'app/uploads/agent.jpg' %}" 
+            src="{% static 'app/uploads/agent.jpg' %}"
             alt=""
             class="img-responsive img-rounded"
           />
@@ -104,77 +104,70 @@
     </div>
     <!-- end title -->
     <div id="da-thumbs" class="da-thumbs portfolio">
-      {% load gallery %} {% galleries as gallery %}
-      {% for house in gallery %}
+      {% load gallery %} {% galleries as gallery %} {% for house in gallery %}
       <div class="post-media pitem item-w1 item-h1 cat1">
         <a href="{% url 'property_gallery' house.id %}">
-          <img src="{{house.image.url}}" alt="{{house.title}}" class="img-responsive" /> 
+          <img
+            src="{{house.image.url}}"
+            alt="{{house.title}}"
+            class="img-responsive"
+          />
           <div>
             <i class="flaticon-unlink"></i>
           </div>
         </a>
       </div>
       {% endfor %}
-    <!-- end portfolio -->
-  </div>
-  <!-- end container -->
-</div>
-<!-- end section -->
-<div id="testimonials" class="section lb">
-  <div class="container">
-    <div class="section-title row text-center">
-      <div class="col-md-8 col-md-offset-2">
-        <h3>Happy Customers</h3>
-        <p class="lead">
-          Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis
-          vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus
-          dignissim.
-        </p>
-      </div>
-      <!-- end col -->
+      <!-- end portfolio -->
     </div>
-    <!-- end title -->
-    <div class="row">
-      <div class="col-md-12 col-sm-12">
-        <div class="testi-carousel owl-carousel owl-theme">
-          <!-- end testimonial -->
-          <!-- end testimonial -->
-          <!-- end testimonial -->
-          <!-- end testimonial -->
-          <!-- end testimonial -->
-          {% load contact_clients %} {% contact_clients as clients %}
-          {% for client in clients %}
-          <div class="testimonial clearfix">
-            <div class="desc">
-              <h3><i class="fa fa-quote-left"></i>{{client.titleReview}}</h3>
-              <p class="lead">
-                {{client.content}}
-              </p>
-            </div>
-            <div class="testi-meta">
-              <img
-                src="{% static 'app/uploads/testi_03.png' %}" 
-                alt=""
-                class="img-responsive alignleft"
-              />
-              <h4>{{client.firstName}} {{client.lastName}}<small>- {{client.address}}</small></h4>
-            </div>
-            <!-- end testi-meta -->
-          </div>
-          {% endfor %}
-          <!-- end testimonial -->
+    <!-- end container -->
+  </div>
+  <!-- end section -->
+  <div id="testimonials" class="section lb">
+    <div class="container">
+      <div class="section-title row text-center">
+        <div class="col-md-8 col-md-offset-2">
+          <h3>Happy Customers</h3>
+          <p class="lead">
+            Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis
+            vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus
+            dignissim.
+          </p>
         </div>
-        <!-- end carousel -->
+        <!-- end col -->
       </div>
-      <!-- end col -->
+      <!-- end title -->
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="testi-carousel owl-carousel owl-theme">
+            {% load contact_clients %} {% contact_clients as clients %} 
+            {% for client in clients %}
+            <div class="testimonial clearfix">
+              <div class="desc">
+                <h3><i class="fa fa-quote-left"></i>{{client.titleReview}}</h3>
+                <p class="lead">{{client.content}}</p>
+              </div>
+              <div class="testi-meta">
+                <img
+                  src="{% static 'app/uploads/testi_03.png' %}"
+                  alt=""
+                  class="img-responsive alignleft"
+                />
+                <h4>
+                  {{client.firstName}} {{client.lastName}}<small
+                    >- {{client.address}}</small
+                  >
+                </h4>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- end row -->
   </div>
-  <!-- end container -->
+  {% if request.user.is_authenticated %} 
+  {% load contact_appointment %} {%contact_appointment %} 
+  {% endif %} 
 </div>
-<!-- end section -->
-{% if request.user.is_authenticated %}
-{% load contact_appointment %} {% contact_appointment %}
-{% endif %}
-<!-- end section -->
 {% endblock content %}
