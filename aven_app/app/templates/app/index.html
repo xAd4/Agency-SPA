@@ -107,7 +107,7 @@
       {% load gallery %} {% galleries as gallery %}
       {% for house in gallery %}
       <div class="post-media pitem item-w1 item-h1 cat1">
-        <a href="#">
+        <a href="{% url 'property_gallery' house.id %}">
           <img src="{{house.image.url}}" alt="{{house.title}}" class="img-responsive" /> 
           <div>
             <i class="flaticon-unlink"></i>

@@ -20,7 +20,7 @@
       <div class="property-detail row clearfix">
         <div class="col-md-2 col-sm-3 col-xs-6">
           <i class="flaticon-coupon effect-1"></i>
-          <h4>Square Feet : 3200</h4>
+          <h4>Square Feet : {{object.squareFeet}}</h4>
         </div>
         <!-- end col -->
         <div class="col-md-2 col-sm-3 col-xs-6">
@@ -30,22 +30,22 @@
         <!-- end col -->
         <div class="col-md-2 col-sm-3 col-xs-6">
           <i class="flaticon-house effect-1"></i>
-          <h4>Garage : 2</h4>
+          <h4>Garage : {{object.garage}}</h4>
         </div>
         <!-- end col -->
         <div class="col-md-2 col-sm-3 col-xs-6">
           <i class="flaticon-full-bed effect-1"></i>
-          <h4>Bedrooms : 3</h4>
+          <h4>Bedrooms : {{object.bedrooms}}</h4>
         </div>
         <!-- end col -->
         <div class="col-md-2 col-sm-3 col-xs-6">
           <i class="flaticon-swimming-pool effect-1"></i>
-          <h4>Pool : Yes</h4>
+          <h4>Pool : {{object.get_pool_display}}</h4>
         </div>
         <!-- end col -->
         <div class="col-md-2 col-sm-3 col-xs-6">
           <i class="flaticon-calendar effect-1"></i>
-          <h4>Build in : 2015</h4>
+          <h4>Build in : {{object.build}}</h4>
         </div>
         <!-- end col -->
       </div>
@@ -55,73 +55,18 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="service-widget">
             <div class="post-media wow fadeIn">
-              <a
-                href="{% static 'app/uploads/estate_01.jpg' %}" 
-                data-rel="prettyPhoto[gal]"
-                class="hoverbutton global-radius"
-                ><i class="flaticon-unlink"></i
-              ></a>
               <img
-                src="{% static 'app/uploads/estate_01.jpg' %}" 
-                alt=""
+                src="{{object.image.url}}" 
+                alt="{{object.title}}"
                 class="img-responsive img-rounded"
               />
             </div>
-            <h3>Spacious and Large Garden</h3>
+            <h3>{{object.title}}</h3>
             <p>
-              Aliquam sagittis ligula et sem lacinia, ut facilisis enim
-              sollicitudin. Proin nisi est, convallis nec purus vitae, iaculis
-              posuere sapien. Cum sociis natoque.
+              {{object.content}}
             </p>
           </div>
           <!-- end service -->
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="service-widget">
-            <div class="post-media wow fadeIn">
-              <a
-                href="{% static 'app/uploads/estate_03.jpg' %}" 
-                data-rel="prettyPhoto[gal]"
-                class="hoverbutton global-radius"
-                ><i class="flaticon-unlink"></i
-              ></a>
-              <img
-                src="{% static 'app/uploads/estate_03.jpg' %}" 
-                alt=""
-                class="img-responsive img-rounded"
-              />
-            </div>
-            <h3>With its Own Pool</h3>
-            <p>
-              Duis at tellus at dui tincidunt scelerisque nec sed felis.
-              Suspendisse id dolor sed leo rutrum euismod. Nullam vestibulum
-              fermentum erat. It nam auctor.
-            </p>
-          </div>
-          <!-- end service -->
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="service-widget">
-            <div class="post-media wow fadeIn">
-              <a
-                href="{% static 'app/uploads/estate_02.jpg' %}" 
-                data-rel="prettyPhoto[gal]"
-                class="hoverbutton global-radius"
-                ><i class="flaticon-unlink"></i
-              ></a>
-              <img
-                src="{% static 'app/uploads/estate_02.jpg' %}" 
-                alt=""
-                class="img-responsive img-rounded"
-              />
-            </div>
-            <h3>In Forests- Fresh Clean Air</h3>
-            <p>
-              Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit
-              amet lacus vitae massa sodales aliquam at eget quam. Integer
-              ultricies et magna quis.
-            </p>
-          </div>
           <!-- end service -->
         </div>
       </div>
