@@ -50,7 +50,7 @@ class ContactForm(forms.ModelForm):
             }),
                 "address": forms.TextInput(attrs={
                 "class": "form-control", 
-                "placeholder": "address",
+                "placeholder": "Address",
                 "style": "text-transform:none;",
             }),
             "firstName": forms.TextInput(attrs={

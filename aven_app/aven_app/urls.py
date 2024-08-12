@@ -18,12 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from registration import urls
 from app import urls
+from api import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Registration
     path("accounts/", include("registration.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
+    # Models JSON
+    path("api/", include("api.urls")),
     # Home Page
     path("", include("app.urls")),
 ]
